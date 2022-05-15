@@ -1,4 +1,7 @@
+type QueueItem = () => Promise<void>
+
 export default class Typewriter {
+  #queue: QueueItem[] = []  
   element: HTMLElement
   loop: boolean
   typingSpeed: number
@@ -13,9 +16,14 @@ export default class Typewriter {
     this.typingSpeed = typingSpeed
     this.deletingSpeed = deletingSpeed
   }
-  
-    typeString(string: string) {
 
+    typeString(string: string) {
+        this.#queue.push(() => {
+            return new Promise((resolve, reject) => {
+                // add string to screen
+                resolve()
+            })
+        })
         return this
     }
 
@@ -34,10 +42,15 @@ export default class Typewriter {
         return this
     }
 
-    start() {
+    async start() {
+        for (let cb of this.#queue) {
+            await cb()
+        }
+        this.#queue.forEach(async cb => {
 
+        })
         return this
-    }
+    }   
 
 }
 

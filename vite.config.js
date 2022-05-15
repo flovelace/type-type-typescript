@@ -1,6 +1,6 @@
 // vite.config.js
-import check from "vite-plugin-checker";
+import Checker from 'vite-plugin-checker'
 
 export default {
-    plugins: [checker({ typescript: true })],
+  plugins: [Checker({ typescript: true })],
 }

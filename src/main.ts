@@ -6,7 +6,7 @@ const typewriter = new Typewriter(document.body, { loop: true })
 typewriter
 .typeString("TYPE TYPE TYPE")
 .pauseFor(1000)
-.TypeString("\n\nfunctio")
+.typeString("\n\nfunctio")
 .deleteChars(7)
 .typeString("const temp")
 .pauseFor(150)
