@@ -1,6 +1,7 @@
 {
-    "tabWidth": 2,
-    "semi": false,
     "singleQuote": true,
-    "disableLanguages": []
+    "trailingComma": "all",
+    "arrowParens": "always",
+    "tabWidth": 2,
+    "quoteProps": "preserve"
   }
