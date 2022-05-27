@@ -21,8 +21,16 @@ export default class Typewriter {
     typeString(string: string) {
         this.#queue.push(() => {
             return new Promise((resolve) => {
-                this.element.append(string)
-                resolve()
+                let i = 0
+                const interval = setInterval(() => {
+                    this.element.append(string[i])
+                    i++
+                    if (i >= string.length) {
+                        resolve()
+                        clearInterval(interval)
+
+                    }
+                }, this.typingSpeed)
             })
         })
         return this
