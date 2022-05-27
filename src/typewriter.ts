@@ -8,10 +8,11 @@ export default class Typewriter {
   deletingSpeed: number
 
   constructor(
-    element: HTMLElement,
+    parent: HTMLElement,
     { loop = false, typingSpeed = 50, deletingSpeed = 50 } = {}
   ) {
-    this.element = element
+    this.element = document.createElement("div")
+    parent.append(this.element)
     this.loop = loop
     this.typingSpeed = typingSpeed
     this.deletingSpeed = deletingSpeed
@@ -19,8 +20,8 @@ export default class Typewriter {
 
     typeString(string: string) {
         this.#queue.push(() => {
-            return new Promise((resolve, reject) => {
-                // add string to screen
+            return new Promise((resolve) => {
+                this.element.append(string)
                 resolve()
             })
         })
