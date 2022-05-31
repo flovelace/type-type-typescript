@@ -1,22 +1,28 @@
-import "./style.css";
-import Typewriter from "./typewriter";
+import "./style.css"
+import Typewriter from "./Typewriter"
 
-const typewriter = new Typewriter(document.body, { loop: true })
+const typewriter = new Typewriter(
+  document.querySelector(".whitespace") as HTMLDivElement,
+  {
+    loop: true,
+    typingSpeed: 10,
+    deletingSpeed: 10,
+  }
+)
 
 typewriter
-.typeString("TYPE TYPE TYPE")
-.pauseFor(1000)
-.typeString("\n\nfunctio")
-.deleteChars(7)
-.typeString("const temp")
-.pauseFor(150)
-.deleteAll(10)
-.typeString("WHY WHY WHY")
-.pauseFor(1000)
-.typeString("\n\nYES YES TEST")
-.pauseFor(1000)
-.typeString("\n\nTEST TEST TEST")
-.pauseFor(1000)
-.deleteAll(10)
-.start()
+  .typeString("TEST STRING")
+  .pauseFor(1000)
+  .typeString("\n\n")
+  .deleteChars(7)
+  .pauseFor(150)
+  .deleteAll(10)
+  .typeString("TEST TEST TEST")
+  .pauseFor(1000)
+  .typeString("\n\nTEXT TEXT")
+  .pauseFor(1000)
+  .typeString("\n\ntest data test data")
+  .pauseFor(1000)
+  .deleteAll(10)
+  .start()
 
